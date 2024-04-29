@@ -6,7 +6,7 @@ on:
             - "auth-develop"
 
 jobs:
-    demo-job:
+    test:
         runs-on: ubuntu-latest
         steps:
             - run: echo "Action Started"
@@ -17,7 +17,7 @@ jobs:
               with:
                   node-version: 18
             - name: Install all dependencies
-              run: npm Install
+              run: npm install
               working-directory: ./services/auth
             - name: Run Tests
               run: npm test
