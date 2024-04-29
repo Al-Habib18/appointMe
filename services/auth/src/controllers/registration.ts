@@ -1,16 +1,20 @@
 /** @format */
 
 import { Response, Request } from "express";
-import { getExitingUser, createUser, createVerifiactionCode } from "@lib/index";
-import { generateHash } from "@utils/index";
+import {
+    getExitingUser,
+    createUser,
+    createVerifiactionCode,
+} from "../lib/index";
+import { generateHash } from "../utils/index";
 import { sendToQueue } from "../sender/auth";
-import { UserCreateSchema } from "@schemas/index";
+import { UserCreateSchema } from "../schemas/index";
 import axios from "axios";
 import {
     patient_service_url,
     doctor_service_url,
     default_email_sender,
-} from "@config/default";
+} from "../../config/default";
 
 const registrationController = async (req: Request, res: Response) => {
     try {
