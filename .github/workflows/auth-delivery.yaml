@@ -3,7 +3,7 @@
 name: Publish Auth Service to Docker Hub and Docker image
 
 on:
-    pull_request:
+    pull_request_review:
         branches:
             - "auth"
 jobs:
