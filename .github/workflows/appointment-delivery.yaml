@@ -3,14 +3,14 @@
 name: Publish Appointment Service to Docker Hub and Docker image
 
 on:
-    pull_request_review:
+    pull_request_target:
         types:
-            - "submitted"
+            - "closed"
         branches:
             - "appointment"
 jobs:
     push-to-registry:
-        if: github.event.pull_request.s
+        if: github.event.pull_request.merged == true
         name: Push to Docker Hub
         runs-on: ubuntu-latest
         steps:
