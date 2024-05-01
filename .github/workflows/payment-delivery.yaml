@@ -1,6 +1,6 @@
 # @format
 
-name: Publish Appointment Service to Docker Hub and Docker image
+name: Publish Payment Service to Docker Hub and Docker image
 
 on:
     pull_request_target:
@@ -30,6 +30,6 @@ jobs:
             - name: Build and push
               uses: docker/build-push-action@v2
               with:
-                  context: ./services/appointment
+                  context: ./services/payment
                   push: true
                   tags: ${{steps.meta.outputs.tags}}
