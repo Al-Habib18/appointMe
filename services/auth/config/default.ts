@@ -20,7 +20,8 @@ export const doctor_service_url =
 
 export const email_service_url = process.env.EMAIL_SERVICE_URL;
 
-export const default_email_sender = process.env.EMAIL_SENDER;
+export const default_email_sender =
+    process.env.EMAIL_SENDER || "alhabib@gmail.com";
 
 export const QUEUE_URL =
     process.env.QUEUE_URL || "amqp://guest:guest@localhost:5672";
