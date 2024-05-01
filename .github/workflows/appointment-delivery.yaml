@@ -3,7 +3,7 @@
 name: Publish Appointment Service to Docker Hub and Docker image
 
 on:
-    pull_request_review:
+    pull_request:
         branches:
             - "appointment"
 jobs:
@@ -13,6 +13,14 @@ jobs:
         steps:
             - name: Check out the repo
               uses: actions/checkout@v4
+
+            - name: Check for merge
+              uses: actions/github-script@v6
+              with:
+                  script: |
+                      github.event.pull_request.merged === true
+                  fail-on-stderr: false
+
             - name: Login to DockerHub
               uses: docker/login-action@v3
               with:
