@@ -77,15 +77,7 @@ Install all dependencies of all service and run all services
   ./main.sh
 ```
 
-or
-
-Go to every services and The API gateway
-
-```bash
-  npm install
-```
-
-Start the server
+Go to every services and The API gateway adn start the server
 
 ```bash
   npm run start

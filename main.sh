@@ -11,14 +11,12 @@ for service in "${services[@]}"; do
 
     if [ true ];then
         echo Installing all dependencies.....
-        #TODO: install all pacakge
-        # npm install .
+        npm install .
+        touch .env
+        cp .env.example .env
     else
         echo Warning: pacakage.json not found for service $service
     fi 
-
-    touch .env
-    cp .env.example .env
 
 
     cd ..         #go back to services directory
