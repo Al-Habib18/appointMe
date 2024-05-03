@@ -31,7 +31,8 @@ jobs:
               uses: docker/metadata-action@v3
               with:
                   images: habib18/appointme-auth
-
+            - name: print current work derectory
+              run: pwd
             - name: Install project dependencies
               run: npm install
               with:
