@@ -1,13 +1,13 @@
 # @format
 
-name: Publish login-history Service to Docker Hub and Docker image
+name: Publish Auth Service to Docker Hub and Docker image
 
 on:
     pull_request_target:
         types:
             - "closed"
         branches:
-            - "login-history"
+            - "auth"
 jobs:
     push-to-registry:
         if: github.event.pull_request.merged == true
@@ -31,11 +31,11 @@ jobs:
               id: meta
               uses: docker/metadata-action@v3
               with:
-                  images: habib18/appointme-login_history
+                  images: habib18/appointme-auth
 
             - name: Install project dependencis
               run: npm install
-              working-directory: ./services/login_history\
+              working-directory: ./services/login_history
 
             - name: Build and push
               uses: docker/build-push-action@v2

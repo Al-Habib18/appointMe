@@ -1,0 +1,25 @@
+# @format
+
+on:
+    push:
+        branches:
+            - "doctor-develop"
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Action Started"
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: User Node.js 18
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Install all dependencies
+              run: npm install
+              working-directory: ./services/doctor
+            - name: Run Tests
+              run: npm test
+              working-directory: ./services/doctor
+            - run: echo "All tests passed"
