@@ -16,6 +16,12 @@ jobs:
         steps:
             - name: Check out the repo
               uses: actions/checkout@v4
+
+            - name: use node 18
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18"
+
             - name: Login to DockerHub
               uses: docker/login-action@v3
               with:
@@ -26,9 +32,14 @@ jobs:
               uses: docker/metadata-action@v3
               with:
                   images: habib18/appointme-auth
+
+            - name: Install project dependencis
+              run: npm install
+              working-directory: ./services/login_history
+
             - name: Build and push
               uses: docker/build-push-action@v2
               with:
-                  context: ./services/auth
+                  context: ./services/login_history
                   push: true
                   tags: ${{steps.meta.outputs.tags}}
