@@ -1,6 +1,6 @@
 # @format
 
-name: Publish Appointment Service to Docker Hub and Docker image
+name: Publish patient Service to Docker Hub and Docker image
 
 on:
     pull_request_target:
