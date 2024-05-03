@@ -35,7 +35,7 @@ jobs:
 
             - name: Install project dependencis
               run: npm install
-              working-directory: ./services/login_history\
+              working-directory: ./services/login_history
 
             - name: Build and push
               uses: docker/build-push-action@v2
