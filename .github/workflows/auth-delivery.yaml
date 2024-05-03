@@ -35,7 +35,7 @@ jobs:
             - name: Install project dependencies
               run: npm install
               with:
-                  working-directory: ./services/auth
+                  context: ./services/auth
 
             - name: Build and push
               uses: docker/build-push-action@v2
